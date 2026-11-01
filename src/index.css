@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #faf8f5;
+  --bg-surface: #ffffff;
+  --bg-sheet: #f3f0e6;
+  --bg-elevated: #f8f6ee;
+  --ink: #0e1e15;
+  --ink-secondary: #384a3e;
+  --ink-muted: #647669;
+  --ink-tertiary: #92a297;
+  --line: rgba(14, 30, 21, 0.08);
+  --line-strong: rgba(14, 30, 21, 0.15);
+  --line-subtle: rgba(14, 30, 21, 0.04);
+  --brand: #0f2c1d;
+  --brand-hover: #081c12;
+  --brand-tint: rgba(15, 44, 29, 0.06);
+  --terracotta: #ad502a;
+  --terracotta-tint: rgba(173, 80, 42, 0.08);
+  --radius-bezel: 24px;
+  --radius-core: 18px;
+  --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: "Geist", "Plus Jakarta Sans", -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle architectural grid backdrop */
+.grid-carto {
+  background-image: 
+    linear-gradient(to right, rgba(14, 30, 21, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 30, 21, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Architectural crosshair corner indicator */
+.crosshair-corner {
+  position: relative;
+}
+.crosshair-corner::before {
+  content: "+";
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  font-family: "Geist Mono", monospace;
+  font-size: 13px;
+  color: rgba(14, 30, 21, 0.3);
+  pointer-events: none;
+}
+.crosshair-corner::after {
+  content: "+";
+  position: absolute;
+  bottom: -9px;
+  right: -9px;
+  font-family: "Geist Mono", monospace;
+  font-size: 13px;
+  color: rgba(14, 30, 21, 0.3);
+  pointer-events: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
